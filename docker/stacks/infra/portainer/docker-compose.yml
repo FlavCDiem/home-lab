@@ -1,0 +1,15 @@
+---
+
+services:
+  portainer:
+    image: portainer/portainer-ee:alpine
+    container_name: portainer
+    restart: always
+    command: -H unix:///var/run/docker.sock
+    ports:
+      - 9443:9443
+    environment:
+      TZ: Pacific/Tahiti
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/docker/portainer/data:/data"
