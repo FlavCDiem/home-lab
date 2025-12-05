@@ -1,0 +1,14 @@
+---
+
+services:
+  twingate_connector:
+    container_name: twingate-organic-carp
+    restart: always
+    image: twingate/connector:latest
+    environment:
+      TZ: $TWINGATE_TIMEZONE
+      TWINGATE_NETWORK: $TWINGATE_NETWORK
+      TWINGATE_ACCESS_TOKEN: $TWINGATE_ACCESS_TOKEN
+      TWINGATE_REFRESH_TOKEN: $TWINGATE_REFRESH_TOKEN
+    sysctls:
+      net.ipv4.ping_group_range: $TWINGATE_IPV4_PING_GROUP_RANGE
