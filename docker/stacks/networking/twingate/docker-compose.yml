@@ -5,6 +5,8 @@ services:
     container_name: twingate-organic-carp
     restart: always
     image: twingate/connector:latest
+    env_file:
+      - stack.env
     environment:
       TZ: $TWINGATE_TIMEZONE
       TWINGATE_NETWORK: $TWINGATE_NETWORK

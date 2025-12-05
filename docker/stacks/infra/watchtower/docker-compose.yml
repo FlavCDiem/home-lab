@@ -5,6 +5,8 @@ services:
     image: nickfedor/watchtower:latest
     container_name: watchtower
     restart: unless-stopped
+    env_file:
+      - stack.env
     environment:
       TZ: $WATCHTOWER_TIMEZONE
       WATCHTOWER_CLEANUP: true
